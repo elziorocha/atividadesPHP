@@ -16,14 +16,14 @@ class LoginController {
     public function autenticar($email, $password) {
         foreach($this->users as $user) {
             if(($user->email == $email) && ($user->password == $password)) {
-                $_SESSION['autenticacao'] = 'SIM';
+                $_SESSION['autenticar'] = 'SIM';
                 $_SESSION['id'] = $user->id;
                 $_SESSION['profile_id'] = $user->profile_id;
                 header('Location: ../chamadoReal/src/view/home.php');
                 exit;
             }
         }
-        $_SESSION['autenticacao'] = 'NÃO';
+        $_SESSION['autenticar'] = 'NÃO';
         header('Location: index.php?login=erro');
         exit;
     }
