@@ -1,5 +1,7 @@
 <?php
 
-define("TITLE", 'ChamadoReal');
+define('TITLE', 'ChamadoReal');
+
+
 
 ?>

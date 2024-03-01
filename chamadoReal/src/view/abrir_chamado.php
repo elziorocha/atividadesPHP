@@ -1,9 +1,8 @@
 <?php
-// abrir_chamado.php
+
 require_once "../../validador_acesso.php";
 ?>
 
-<!-- O conteúdo do arquivo abrir_chamado.php permanece o mesmo, mas você pode querer otimizar o código CSS e HTML. -->
 <html>
   <head>
     <meta charset="utf-8" />
@@ -85,6 +84,5 @@ require_once "../../validador_acesso.php";
           </div>
         </div>
     </div>
-
   </body>
 </html>

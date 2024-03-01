@@ -1,30 +1,23 @@
 <?php
 require_once "../../validador_acesso.php";
 
-//chamados
 $chamados = array();
 
-//abrir o arquivo.hd
-$arquivo = fopen('../../arquivo.hd', 'r');
+$arquivo = fopen('../../arquivo.txt', 'r');
 
-//enquanto houver registros (linhas) a serem recuperados
-while(!feof($arquivo)) { //testa pelo fim de um arquivo
-  //linhas  
+while(!feof($arquivo)) {
   $registro = fgets($arquivo);
   $chamados[] = $registro;
 }
 
-//fechar o arquivo aberto
 fclose($arquivo);
 
-// O restante do código permanece o mesmo, mas você pode querer otimizar o código CSS e HTML.
 ?>
 
-<!-- O conteúdo do arquivo consultar_chamado.php permanece o mesmo, mas você pode querer otimizar o código CSS e HTML. -->
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>App Help Desk</title>
+    <title>Chamado Real</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -42,7 +35,7 @@ fclose($arquivo);
     <nav class="navbar navbar-dark bg-dark">
       <a class="navbar-brand" href="#">
         <img src="../../logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
-        App Help Desk
+        Chamado Real
       </a>
       <ul class="navbar-nav">
         <li class="nav-item">
@@ -68,9 +61,7 @@ fclose($arquivo);
 
                   $chamado_dados = explode('#', $chamado);
 
-                  //
                   if($_SESSION['perfil_id'] == 2) {
-                    //só vamos exibir o chamado, se ele foi criado pelo usuário
                     if($_SESSION['id'] != $chamado_dados[0]) {
                       continue;
                     }
