@@ -6,7 +6,7 @@ class Animal2 {
     }
 }
 
-class Cachorro extends Animal2 {
+class Cachorro2 extends Animal2 {
     public function emitirSom() {
         echo "Au Au!";
     }
@@ -18,7 +18,7 @@ class Gato extends Animal2 {
     }
 }
 
-$cachorro = new Cachorro();
+$cachorro = new Cachorro2();
 $gato = new Gato();
 
 echo "O cachorro faz: ";
