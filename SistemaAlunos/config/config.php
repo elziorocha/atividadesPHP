@@ -1,7 +1,5 @@
 <?php
 
-define('TITLE', 'ChamadoReal');
-
-
+define('TITLE', 'SistemaAlunos');
 
 ?>
