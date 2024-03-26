@@ -47,7 +47,15 @@
 										<label>Descrição da tarefa:</label>
 										<input type="text" class="form-control" name="tarefa" placeholder="Exemplo: Lavar o carro">
 									</div>
-
+									<!-- Adicionado um label, juntamente com um select com options dentro para a escolha da categoria
+									desejada pelo usuário
+									action do select vai imprimir para o tarefa_controller com a acao de inserirCategoria -->
+									<form method="post" action="tarefa_controller.php?acao=inserirCategoria">
+										<div class="form-group">
+											<label>Categoria da Tarefa: </label>
+											<input type="text" class="form-control" name="categoria" placeholder="Estudos">
+										</div>
+									<form/>
 									<button class="btn btn-success">Cadastrar</button>
 								</form>
 							</div>

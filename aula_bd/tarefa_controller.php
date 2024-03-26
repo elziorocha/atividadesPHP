@@ -17,6 +17,17 @@
 
 		header('Location: nova_tarefa.php?inclusao=1');
 	
+	} if($acao == 'inserirCategoria' ) {
+		$tarefa = new Tarefa();
+		$tarefa->__set('categoria', $_POST['categoria']);
+
+		$conexao = new Conexao();
+
+		$tarefaService = new TarefaService($conexao, $tarefa);
+		$tarefaService->inserir();
+
+		header('Location: nova_tarefa.php?inclusao=1');
+
 	} else if($acao == 'recuperar') {
 		
 		$tarefa = new Tarefa();

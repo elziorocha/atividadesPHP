@@ -6,6 +6,7 @@ class TarefaService {
 
 	private $conexao;
 	private $tarefa;
+	private $categoria;
 
 	public function __construct(Conexao $conexao, Tarefa $tarefa) {
 		$this->conexao = $conexao->conectar();
@@ -13,9 +14,16 @@ class TarefaService {
 	}
 
 	public function inserir() { //create
-		$query = 'insert into tb_tarefas(tarefa)values(:tarefa)';
+		$query = 'insert into tb_tarefas(tarefa) values(:tarefa)';
 		$stmt = $this->conexao->prepare($query);
 		$stmt->bindValue(':tarefa', $this->tarefa->__get('tarefa'));
+		$stmt->execute();
+	}
+
+	public function inserirCategoria() { //create
+		$query = 'insert into tb_tarefas(categoria) values(:categoria)';
+		$stmt = $this->conexao->prepare($query);
+		$stmt->bindValue(':categoria', $this->tarefa->__get('categoria'));
 		$stmt->execute();
 	}
 

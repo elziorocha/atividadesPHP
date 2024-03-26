@@ -22,7 +22,7 @@
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
 		<script>
-			function editar(id, txt_tarefa) {
+			function editar(id, txt_tarefa, txt_categoria) {
 
 				//criar um form de edição
 				let form = document.createElement('form')
@@ -34,8 +34,14 @@
 				let inputTarefa = document.createElement('input')
 				inputTarefa.type = 'text'
 				inputTarefa.name = 'tarefa'
-				inputTarefa.className = 'col-9 form-control'
+				inputTarefa.className = 'col-6 form-control'
 				inputTarefa.value = txt_tarefa
+
+				let inputCategoria= document.createElement('input')
+				inputCategoria.type = 'text'
+				inputCategoria.name = 'categoria'
+				inputCategoria.className = 'col-3 form-control'
+				inputCategoria.value = txt_categoria
 
 				//criar um input hidden para guardar o id da tarefa
 				let inputId = document.createElement('input')
@@ -51,6 +57,7 @@
 
 				//incluir inputTarefa no form
 				form.appendChild(inputTarefa)
+				form.appendChild(inputCategoria)
 
 				//incluir inputId no form
 				form.appendChild(inputId)
@@ -64,11 +71,15 @@
 				//selecionar a div tarefa
 				let tarefa = document.getElementById('tarefa_'+id)
 
+				let categoria = document.getElementById('categoria_'+id)
+
 				//limpar o texto da tarefa para inclusão do form
 				tarefa.innerHTML = ''
+				categoria.innerHTML = ''
 
 				//incluir form na página
 				tarefa.insertBefore(form, tarefa[0])
+				categoria.insertBefore(form, categoria[0])
 
 			}
 
@@ -112,7 +123,7 @@
 
 								<?php foreach($tarefas as $indice => $tarefa) { ?>
 									<div class="row mb-3 d-flex align-items-center tarefa">
-										<div class="col-sm-9" id="tarefa_<?= $tarefa->id ?>">
+										<div class="col-sm-6" id="tarefa_<?= $tarefa->id ?>">
 											<?= $tarefa->tarefa ?>
 										</div>
 										<div class="col-sm-3 mt-2 d-flex justify-content-between">
